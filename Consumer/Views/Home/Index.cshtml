@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #343a40;
+    }
+
+    .form-container {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 400px;
+        margin: auto;
+    }
+
+        .form-container div {
+            margin-bottom: 10px;
+        }
+
+        .form-container label {
+            font-size: 1rem;
+            color: #495057;
+        }
+
+        .form-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .form-container button:hover {
+                background-color: #0056b3;
+            }
+
+    .messages-container {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+        .messages-container h3 {
+            color: #343a40;
+        }
+
+        .messages-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .messages-container li {
+            background-color: #f1f3f5;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            color: #495057;
+        }
+</style>
+
+<div class="form-container">
+    <h2>Send Message</h2>
+
+    @using (Html.BeginForm())
+    {
+        <div>
+            <label><input type="checkbox" name="selectedOption" value="orange"> Orange</label>
+        </div>
+        <div>
+            <label><input type="checkbox" name="selectedOption" value="green"> Green</label>
+        </div>
+        <div>
+            <label><input type="checkbox" name="selectedOption" value="black"> Black</label>
+        </div>
+
+        <br />
+        <button type="submit">Save</button>
+    }
+</div>
+
+<div class="messages-container">
+    <h3>Messages</h3>
+    <ul>
+        @foreach (var message in ViewBag.Messages)
+        {
+            <li>@message</li>
+        }
+    </ul>
+</div>
